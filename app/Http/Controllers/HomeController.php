@@ -2,18 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\DadosExport;
 use Illuminate\Http\Request;
+
+use App\Exports\DadosExport;
 use Excel;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-        return view('home.index');
+        return view('home');
     }
+
+    public function convert()
+    {
+        return view('convert.index');
+    }
+
 
     public function store(Request $request)
     {
@@ -31,6 +52,4 @@ class HomeController extends Controller
         return Excel::download(new DadosExport($cartorios_dados), 'users.xlsx');
 
     }
-
-
 }

@@ -5,3 +5,19 @@ body {
   padding: 3rem 1.5rem;
   text-align: center;
 }
+
+table{
+    width:100%;
+}
+#example_filter{
+    float:right;
+}
+#example_paginate{
+    float:right;
+}
+label {
+    display: inline-flex;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+
+}

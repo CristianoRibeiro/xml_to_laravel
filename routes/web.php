@@ -15,4 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 
-Route::post('/store', 'HomeController@store');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::post('/store', 'HomeController@store')->name('store');
+Route::get('/convert', 'HomeController@convert')->name('convert');
+
+Route::resource('/cartorio', 'CartorioController');
